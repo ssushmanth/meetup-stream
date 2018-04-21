@@ -4,7 +4,7 @@ import org.apache.spark.Logging
 
 import org.apache.log4j.{Level, Logger}
 
-/** Utility functions for Spark Streaming examples. */
+/** Log Settings. */
 object Loggable extends Logging {
 
   /** Set reasonable logging levels for streaming if the user has not configured log4j. */
