@@ -1,6 +1,3 @@
-/**
- *
- */
 package receiver
 
 import org.apache.spark.streaming.receiver.Receiver
@@ -16,10 +13,8 @@ import java.io.BufferedReader
 import java.io.InputStream
 import java.io.PipedInputStream
 import java.io.PipedOutputStream
-/**
- * @author szelvenskiy
- *
- */
+
+
 class MeetupReceiver(url: String) extends Receiver[String](StorageLevel.MEMORY_AND_DISK_2) with Logging {
   
   @transient var client: AsyncHttpClient = _
@@ -27,7 +22,7 @@ class MeetupReceiver(url: String) extends Receiver[String](StorageLevel.MEMORY_A
   @transient var inputPipe: PipedInputStream = _
   @transient var outputPipe: PipedOutputStream = _  
        
-  def onStart() {    
+  def onStart() {
     val cf = new AsyncHttpClientConfig.Builder()
     cf.setRequestTimeout(Integer.MAX_VALUE)
     cf.setReadTimeout(Integer.MAX_VALUE)
@@ -63,8 +58,7 @@ class MeetupReceiver(url: String) extends Receiver[String](StorageLevel.MEMORY_A
         t.printStackTrace()
       }
         
-    })    
-    
+    })
     
   }
 
