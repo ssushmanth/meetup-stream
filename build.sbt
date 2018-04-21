@@ -1,5 +1,5 @@
 
-name := """meetup"""
+name := """meetup-spark-streaming-project"""
 
 EclipseKeys.withSource := true
 
@@ -10,7 +10,7 @@ scalaVersion := "2.11.2"
 
 ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
 
-jarName in assembly := "meetup.jar"
+jarName in assembly := "meetup-spark-streaming-project.jar"
 
 assemblyMergeStrategy in assembly := {
   case "application.conf" => MergeStrategy.concat
