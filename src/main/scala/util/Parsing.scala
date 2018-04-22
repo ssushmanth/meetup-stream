@@ -15,11 +15,22 @@ object Parsing {
   
   @transient implicit val formats = DefaultFormats
   
-  def parseEvent(eventJson: String):Option[Event]={
+  def parseEvent(eventJson: String):Option[EventDetails] ={
     Try({
       val json=parse(eventJson).camelizeKeys
       val event=json.extract[Event]
-      event      
+	  val venue=(json \ "venue").extract[Venue]
+      val group=(json \ "group").extract[Group]
+	  val category=(json \ "group" \ "category").extract[Category]
+	  EventDetails(event.id, event.name.getOrElse(""), venue.city.getOrElse(""), venue.country.getOrElse(""), event.paymentRequired.getOrElse(0), category.id.getOrElse(0), category.shortname.getOrElse(""), event.duration.getOrElse(10800000L))
+    }).toOption
+  }
+  
+  def parseHisEvent(eventJson: String):Option[Event] ={
+    Try({
+      val json=parse(eventJson).camelizeKeys
+      val event=json.extract[Event]
+	  event
     }).toOption
   }
   
