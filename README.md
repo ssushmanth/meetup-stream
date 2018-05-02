@@ -1,6 +1,6 @@
 Spark Streaming - Meetup Data Analysis
 
-Learn about the project here: https://www.slideshare.net/SushmanthSagala/spark-streaming-meetup-data-analysis-95744674
+Learn more about the project here: https://www.slideshare.net/SushmanthSagala/spark-streaming-meetup-data-analysis-95744674
 
 Run the project: sbt run
 
